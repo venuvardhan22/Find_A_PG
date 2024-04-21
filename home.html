@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Data</title>
+    <style>
+        .userDataItem {
+            color: rbg(96,96,96);
+            font-family: Arial;
+            text-align: center;
+        }
+        strong {
+            color: rebeccapurple;
+        }
+
+
+        * {
+            padding: 0;
+            margin: 0;
+            text-decoration: none;
+            list-style: none;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        nav {
+            background: linear-gradient(to bottom, #227325 0%, #4CAF50 102%);
+            height: 80px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        label.logo {
+            color: white;
+            font-size: 35px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        nav ul li {
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            color: #338736;
+            font-size: 17px;
+            padding: 7px 13px;
+            border-radius: 3px;
+            text-transform: uppercase;
+        }
+
+        a.active,
+        a:hover {
+            color: #ffffff;
+            transition: .5s;
+        }
+
+        .checkbtn {
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+            display: none;
+        }
+
+        #check {
+            display: none;
+        }
+
+        @media (max-width: 858px) {
+            .checkbtn {
+                display: block;
+            }
+
+            nav ul {
+                flex-direction: column;
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                background: #2c3e50;
+                transition: all .5s;
+            }
+
+            nav ul li {
+                margin: 20px 0;
+            }
+
+            #check:checked~ul {
+                left: 0;
+            }
+        }
+        /* PG Search Section Styles */
+#pg-search {
+    background-color: #f5f5f5;
+    padding: 50px;
+    text-align: center;
+}
+
+#pg-search h2 {
+    margin-bottom: 20px;
+    color: #4CAF50;
+}
+
+#pg-search form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#pg-search input[type="text"] {
+    width: 70%;
+    padding: 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+}
+
+#pg-search button[type="submit"] {
+    padding: 15px 30px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 0 5px 5px 0;
+    transition: background-color 0.3s ease;
+    font-size: 16px;
+    outline: none;
+}
+
+#pg-search button[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+
+body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+
+        .sample {
+            display: flex;
+            flex-direction: row;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 20px auto;
+            max-width: 1000px;
+        }
+
+        .c1 {
+            flex: 0 0 25%;
+        }
+
+        .image-class {
+            width: 100%;
+            border-top-left-radius: 8px;
+            border-bottom-left-radius: 8px;
+        }
+
+        .c2 {
+            flex: 0 0 40%;
+            padding: 20px;
+        }
+
+        .pg-name {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .pg-details {
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .extras p {
+            color: #888;
+        }
+
+        .c3 {
+            flex: 0 0 35%;
+            background-color: #4CAF50;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .vacancies {
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .facilities {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+        }
+
+        .facility-item {
+            margin-bottom: 10px;
+        }
+
+        .btn {
+            background-color: #fff;
+            color: #4CAF50;
+            border: 2px solid #4CAF50;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #276129;
+            color: #fff;
+        }
+
+
+        footer {
+            background: #000;
+            color: #fff;
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .footer .row a {
+            text-decoration: none;
+            color: gray;
+            transition: 0.5s;
+            margin: 0 10px;
+        }
+
+        .footer .row a:hover {
+            color: #fff;
+        }
+
+        .footer .row ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .footer .row ul li {
+            margin: 0 15px;
+        }
+
+        .footer .row a i {
+            font-size: 2em;
+        }
+
+        @media (max-width: 720px) {
+            .footer .row {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .footer .row ul li {
+                margin: 10px 0;
+            }
+
+            .footer .row a i {
+                margin: 0% 3%;
+            }
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+
+
+    <nav>
+        <label class="logo">FIND A PG!</label>
+        <input type="checkbox" id="check" class="checkbtn">
+        <ul>
+            <li><a class="active" href="#">Home</a></li>
+            <li><a href="file:///C:/Users/91817/Desktop/about.html">About</a></li>
+            <li><a href="file:///C:/Users/91817/Desktop/serv.html">Services</a></li>
+            <li><a href="file:///C:/Users/91817/Desktop/con.html">Contact</a></li>
+            <li><a href="login.html">Register</a></li>
+        </ul>
+        <label for="check" class="checkbtn">
+            <i class="fas fa-bars"></i>
+        </label>
+    </nav>
+    
+    <main>
+        <section id="pg-search">
+            <h2>Find Your Perfect PG</h2>
+            <h2>Choose The Pg From Home</h2>
+            <form>
+                <input type="text" id="location" placeholder="Enter Location" required>
+                <button type="submit">Search</button>
+            </form>
+        </section>
+    </main>
+
+    <script>
+        function toggleNav() {
+            var nav = document.querySelector('.nav');
+            nav.classList.toggle('active');
+        }
+    </script>
+
+
+
+<div id="userData"></div>
+
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+    import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-database.js";
+
+    const firebaseConfig = {
+    apiKey: "AIzaSyAuleT2VwEKv0yu1XHeQbAjApoo5S3IaQA",
+    authDomain: "find-a-pg.firebaseapp.com",
+    databaseURL: "https://find-a-pg-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "find-a-pg",
+    storageBucket: "find-a-pg.appspot.com",
+    messagingSenderId: "346261878903",
+    appId: "1:346261878903:web:80dba29c8b659f51072e72"
+  };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+
+    const userDataDiv = document.getElementById("userData");
+
+    // Create a reference to the "users" node in the database
+    const usersRef = ref(db, 'users');
+
+    // Listen for changes in the data under the "users" node
+    onValue(usersRef, (snapshot) => {
+        // Clear previous data
+        userDataDiv.innerHTML = '';
+
+        // Process each user entry
+        snapshot.forEach((childSnapshot) => {
+            const userData = childSnapshot.val();
+            const userId = childSnapshot.key; // Get the user ID
+            const userElement = document.createElement('div');
+            userElement.classList.add('userDataItem');
+            userElement.innerHTML = `
+                <div class="sample">
+                    <div class="c1">
+                        <img src="${userData.imageUrl}" class="image-class" alt="Hostel Image">
+                    </div>
+                    <div class="c2">
+                        <p class="pg-name">${userData.hostelname}</p>
+                        <p class="pg-details">${userData.phone}</p>
+                        <p class="price">${userData.price}</p>
+                        <div class="extras">
+                            <p>The car parking and the Wi-Fi are always free, so you can stay in touch and come and go as you please.</p>
+                        </div>
+                        <button class="btn" onclick="openDetailsPage('${userId}')">View Details</button>
+                        <button class="btn">Call</button>
+                    </div>
+                    <div class="c3">
+                        <p class="price">from <strong>${userData.price}</strong></p>
+                        <p class="vacancies">Vacancies: 19</p>
+                        <ul class="facilities">
+                            <li class="facility-item">${userData.city}</li>
+                            <li class="facility-item">24/7 Security</li>
+                            <li class="facility-item">Cleaning Services</li>
+                            <li class="facility-item">Laundry Facilities</li>
+                            <li class="facility-item">Cafeteria</li>
+                        </ul>
+                        <button class="btn" onclick="openDetailsPage('${userId}')">Details</button>
+                    </div>
+                </div>
+            `;
+            userDataDiv.appendChild(userElement);
+        });
+    });
+
+    window.openDetailsPage = function(userId) {
+        window.location.href = `details.html?userId=${userId}`;
+    }
+</script>
+
+<footer>
+    <div class="footer">
+        <div class="row">
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-instagram"></i></a>
+            <a href="#"><i class="fa fa-whatsapp"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+        </div>
+
+        <div class="row">
+            <ul>
+                <li><a href="con.html">Contact us</a></li>
+                <li><a href="serv.html">Our Services</a></li>
+                <li><a href="pp.html">Privacy Policy</a></li>
+                <li><a href="tc.html">Terms & Conditions</a></li>
+                <li><a href="vinay.html">Home</a></li>
+            </ul>
+        </div>
+
+        <div class="row">
+            F@PG Copyright © 2024 F@PG - All rights reserved || Designed By: Creators of F@PG.
+        </div>
+    </div>
+</footer>
+
+
+</body>
+</html>
+
+
+
+
