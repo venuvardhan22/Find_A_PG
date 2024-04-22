@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retrieve Data from Firebase</title>
+    <style>
+        #googleMap {
+            width: 100%;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <div id="googleMap"></div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+        import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-database.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyAuleT2VwEKv0yu1XHeQbAjApoo5S3IaQA",
+            authDomain: "find-a-pg.firebaseapp.com",
+            databaseURL: "https://find-a-pg-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "find-a-pg",
+            storageBucket: "find-a-pg.appspot.com",
+            messagingSenderId: "346261878903",
+            appId: "1:346261878903:web:80dba29c8b659f51072e72"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+
+        // Create a reference to the "users" node in the database
+        const usersRef = ref(db, 'users/');
+
+        // Define JavaScript objects to store lat, lon, and hostel name
+        const latData = {};
+        const lonData = {};
+        const hostelNameData = {};
+
+        // Initialize the Google Map
+        let map;
+
+        function initMap() {
+            map = new google.maps.Map(document.getElementById("googleMap"), {
+                center: { lat: 20.4342177502538, lng: 78.00625183746817 }, // Set default center
+                zoom: 7,
+            });
+        }
+
+        // Call initMap once Google Maps API is loaded
+        window.initMap = initMap;
+
+        // Listen for changes in the data under the "users" node
+        onValue(usersRef, (snapshot) => {
+            snapshot.forEach((childSnapshot) => {
+                const userId = childSnapshot.key;
+                const userData = childSnapshot.val();
+
+                // Retrieve latitude, longitude, and hostel name
+                const lat = parseFloat(userData.lat);
+                const lon = parseFloat(userData.lon);
+                const hostelName = userData.hostelname;
+
+                // Create marker
+                const marker = new google.maps.Marker({
+                    position: { lat: lat, lng: lon },
+                    map: map,
+                    title: hostelName,
+                });
+
+                // Create info window
+                const infowindow = new google.maps.InfoWindow({
+                    content: hostelName,
+                });
+
+                // Add event listener to marker
+                marker.addListener("click", () => {
+                    infowindow.open(map, marker);
+                });
+            });
+        });
+    </script>
+
+    <!-- Load the Google Maps JavaScript API asynchronously -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAuleT2VwEKv0yu1XHeQbAjApoo5S3IaQA&callback=initMap"
+            async defer></script>
+</body>
+</html>

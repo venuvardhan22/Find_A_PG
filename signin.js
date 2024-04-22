@@ -38,6 +38,8 @@ const register = () => {
     const area = document.getElementById('area').value;
     const city = document.getElementById('city').value;
     const pin = document.getElementById('pin').value;
+    const lat = document.getElementById('lat').value;
+    const lon = document.getElementById('lon').value;
     const vacancies = document.getElementById('vacancies').value;
     const image = document.getElementById('fileInput').files[0]; // Get uploaded image
 
@@ -69,6 +71,8 @@ const register = () => {
                                 area: area,
                                 city: city,
                                 pin: pin,
+                                lat: lat,
+                                lon:lon,
                                 imageUrl: downloadURL // Store image URL
                             })
                             .then(() => {
